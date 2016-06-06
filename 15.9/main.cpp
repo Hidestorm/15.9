@@ -1,6 +1,9 @@
 #include "TextQuery.h"
 #include "open_file.h"
-
+#include "Query.h"
+#include "Query_base.h"
+#include "WordQuery.h"
+#include "BinaryQuery.h"
 
 string make_plural(size_t ctr, const string &word,
 	const string &ending)
@@ -39,18 +42,22 @@ int main()
 	tq.read_file(infile); // builds query map
 						  // iterate with the user: prompt for a word to find and print	results
 		// loop indefinitely; the loop exit is inside the while
-		while (true) {
-			cout << "enter word to look for, or q to quit: ";
-			string s;
-			cin >> s;
-			// stop if hit eof on input or a 'q'is entered
-			if (!cin || s == "q") break;
-			// get the set of line numbers on which this word appears
-			set<TextQuery::line_no> locs = tq.run_query(s);
-			// print count and all occurrences, if any
-			print_results(locs, s, tq);
-		}
-		system("pause");
+/*	while (true) {
+		cout << "enter word to look for, or q to quit: ";
+		string s;
+		cin >> s;
+		// stop if hit eof on input or a 'q'is entered
+		if (!cin || s == "q") break;
+		// get the set of line numbers on which this word appears
+		set<TextQuery::line_no> locs = tq.run_query(s);
+		// print count and all occurrences, if any
+		print_results(locs, s, tq);
+	}*/
+	Query q = Query("Alice") & Query("Emma");
+	set<TextQuery::line_no> res = q.eval(tq);
+	q.display(cout);
+	cout << endl;
+	system("pause");
 	return 0;
 }
 

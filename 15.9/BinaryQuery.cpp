@@ -1,6 +1,5 @@
 #include "BinaryQuery.h"
-#include <algorithm>
-#include <iterator>
+
 set<TextQuery::line_no>
 OrQuery::eval(const TextQuery& file) const
 {

@@ -17,6 +17,10 @@
 		 return lines_of_text[line];
 	 throw std::out_of_range("line number out of range");
  }
+ TextQuery::line_no TextQuery::size() const
+ {
+	 return lines_of_text.size();
+ }
 void TextQuery::store_file(std::ifstream &is)
 {
 	string textline;

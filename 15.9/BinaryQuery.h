@@ -1,6 +1,8 @@
 #pragma once
 #include "WordQuery.h"
 #include "Query_base.h"
+#include <algorithm>
+#include <iterator>
 class BinaryQuery : public Query_base {
 protected:
 	BinaryQuery(Query left, Query right, std::string op) :
