@@ -5,6 +5,18 @@
 #include "WordQuery.h"
 #include "BinaryQuery.h"
 
+inline Query operator&(const Query &lhs, const Query &rhs)
+{
+	return new AndQuery(lhs, rhs);
+}
+inline Query operator|(const Query &lhs, const Query &rhs)
+{
+	return new OrQuery(lhs, rhs);
+}
+inline Query operator~(const Query &oper)
+{
+	return new NotQuery(oper);
+}
 string make_plural(size_t ctr, const string &word,
 	const string &ending)
 {
@@ -53,10 +65,11 @@ int main()
 		// print count and all occurrences, if any
 		print_results(locs, s, tq);
 	}*/
-	Query q = Query("Alice") & Query("Emma");
+	Query q = ~Query("Alice");// & Query("Emma");
 	set<TextQuery::line_no> res = q.eval(tq);
 	q.display(cout);
 	cout << endl;
+	print_results(res, "Alice", tq);
 	system("pause");
 	return 0;
 }

@@ -27,7 +27,7 @@ public:
 	line_no size() const;
 private:
 	// utility functions used by read_file
-	void store_file(std::ifstream&); // store input file
+	void store_file(std::ifstream&);	// store input file
 	void build_map(); // associated each word with a set of line nnumbers
 		// remember the whole input file
 	std::vector<std::string> lines_of_text;

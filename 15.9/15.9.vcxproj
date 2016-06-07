@@ -120,7 +120,6 @@
   <ItemGroup>
     <ClCompile Include="BinaryQuery.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Query.cpp" />
     <ClCompile Include="TextQuery.cpp" />
     <ClCompile Include="WordQuery.cpp" />
   </ItemGroup>

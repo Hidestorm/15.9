@@ -13,3 +13,4 @@ NotQuery::eval(const TextQuery& file) const
 				ret_lines.insert(n);
 	return ret_lines;
 }
+Query::Query(const string &s) : q(new WordQuery(s)), use(new size_t(1)) {}

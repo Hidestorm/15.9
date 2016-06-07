@@ -1,5 +1,6 @@
 #pragma once
 #include "Query_base.h"
+
 class Query {
 	// these operators need access to the Query_base* constructor
 	friend Query operator~(const Query &);
@@ -34,3 +35,4 @@ private:
 inline ostream & operator<<(ostream &os, const Query &q) {
 	return q.display(os);
 }
+
